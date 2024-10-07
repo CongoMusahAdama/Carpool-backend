@@ -1,0 +1,46 @@
+{
+  "name": "notification",
+  "version": "1.0.0",
+  "description": "Handle all notification related actions",
+  "main": "./src/app.ts",
+  "scripts": {
+    "test": "nodemon ./src/app.ts",
+    "start": "nodemon ./src/app.ts"
+  },
+  "keywords": [
+    "gym",
+    "Api",
+    "notification",
+    "documentation"
+  ],
+  "author": "John Emil",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "email-templates": "^11.1.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.5.2",
+    "nodemailer": "^6.9.12",
+    "nodemon": "^3.0.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.17",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/email-templates": "^10.0.4",
+    "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.4.2",
+    "ts-node-dev": "^2.0.0",
+    "tsc": "^2.0.4",
+    "typescript": "^5.1.6"
+  }
+}
