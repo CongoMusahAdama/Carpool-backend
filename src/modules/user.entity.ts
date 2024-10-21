@@ -2,8 +2,32 @@ import "reflect-metadata";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { BaseDatabaseEntity } from "./base.entity";
 
-@Entity()
+
+
+
+@Entity({name: "User"})
 export class Users extends BaseDatabaseEntity {
+  username: any;
+  static findOne(arg0: { $or: ({ username: string; } | { email: string; })[]; }) {
+      throw new Error('Method not implemented.');
+  }
+  static splice(_Users: typeof Users, _arg1: number) {
+     throw new Error("Method not implemented.");
+  }
+  static findIndex(arg0: (user: { id: number; }) => boolean) {
+      throw new Error("Method not implemented.");
+  }
+  static find(arg0: (u: { id: string; }) => boolean) {
+      throw new Error("Method not implemented.");
+  }
+  //phoneNumber: string;
+    //name: string;
+  save() {
+    throw new Error('Method not implemented.');
+  }
+  @PrimaryGeneratedColumn()
+  userId!:number;
+
   @Column()
   firstName!: string;
 
@@ -34,3 +58,5 @@ export class Users extends BaseDatabaseEntity {
   @Column({ nullable: true, type: "text" })
   profilePicture!: string;
 }
+
+
