@@ -6,7 +6,8 @@ import { PrimaryGeneratedColumnNumericOptions } from "typeorm/decorator/options/
 
 
 @Entity({name: "driver"})
-export class Drivers extends BaseDatabaseEntity {
+export class Driver extends BaseDatabaseEntity {
+  rides: any;
   static find(arg0: (d: { email: any; password: any; }) => boolean) {
       throw new Error("Method not implemented.");
   }

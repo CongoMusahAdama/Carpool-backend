@@ -1,11 +1,18 @@
 import "reflect-metadata";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { BaseDatabaseEntity } from "./base.entity";
 import { PrimaryGeneratedColumnIdentityOptions } from "typeorm/decorator/options/PrimaryGeneratedColumnIdentityOptions";
+import { Driver } from "./driver.entity";
 
 
 @Entity({name: "ride"})
-export class Rides extends BaseDatabaseEntity {
+export class Ride extends BaseDatabaseEntity {
+  static splice(rideIndex: void, arg1: number) {
+      throw new Error("Method not implemented.");
+  }
+  static findIndex(arg0: (r: { id: number; }) => boolean) {
+      throw new Error("Method not implemented.");
+  }
   static deleteOne(arg0: { _id: string; }) {
       throw new Error("Method not implemented.");
   }
@@ -35,6 +42,9 @@ export class Rides extends BaseDatabaseEntity {
   user!: string;
 
   @Column()
+    date!: Date;
+
+  @Column()
   pickupLocation!: string;
 
   @Column()
@@ -45,6 +55,9 @@ export class Rides extends BaseDatabaseEntity {
 
   @Column()
   fare!: number;
+
+  @ManyToOne(() => Driver, (driver) => driver.rides)
+  driver!: Driver;
 }
 
 

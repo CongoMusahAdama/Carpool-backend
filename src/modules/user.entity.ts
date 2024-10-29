@@ -5,13 +5,17 @@ import { BaseDatabaseEntity } from "./base.entity";
 
 
 
-@Entity({name: "User"})
-export class Users extends BaseDatabaseEntity {
+@Entity({name: "user"})
+export class User extends BaseDatabaseEntity {
+  static userId: any;
+  static update(userId: any, arg1: { deletedAt: Date; }) {
+    throw new Error("Method not implemented.");
+  }
   username: any;
   static findOne(arg0: { $or: ({ username: string; } | { email: string; })[]; }) {
       throw new Error('Method not implemented.');
   }
-  static splice(_Users: typeof Users, _arg1: number) {
+  static splice(_Users: typeof User, _arg1: number) {
      throw new Error("Method not implemented.");
   }
   static findIndex(arg0: (user: { id: number; }) => boolean) {
@@ -25,14 +29,17 @@ export class Users extends BaseDatabaseEntity {
   save() {
     throw new Error('Method not implemented.');
   }
+
+  @PrimaryGeneratedColumn() // This creates an auto-incrementing 'id' column
+  id!: number;
+
   @PrimaryGeneratedColumn()
   userId!:number;
 
+  
   @Column()
   firstName!: string;
 
-  @Column({ nullable: true })
-  title!: string;
 
   @Column()
   lastName!: string;
@@ -44,7 +51,7 @@ export class Users extends BaseDatabaseEntity {
   email!: string;
 
   @Column({ unique: true, nullable: true })
-  phone!: string;
+  phoneNumber!: string;
 
   @Column({ nullable: true, type: "text" })
   password!: string;
